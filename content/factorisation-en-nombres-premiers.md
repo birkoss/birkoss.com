@@ -1,5 +1,6 @@
 Title: Factorisation en nombres premiers
-Category: python
+Category: code
+Tags: python
 Date: 2015-07-29
 Slug: factorisation-en-nombres-premiers
 
