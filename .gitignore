@@ -2,3 +2,6 @@
 output/*
 fabfile.py
 Makefile
+develop_server.sh
+pelicanconf.py
+publishconf.py
