@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block head %}
+  {{ super() }}
+  {% for keyword in article.keywords %}
+    <meta name="keywords" content="{{keyword}}" />
+  {% endfor %}
+
+  {% if article.description %}
+    <meta name="description" content="{{article.description}}" />
+  {% endif %}
+
+  {% for tag in article.tags %}
+    <meta name="tags" content="{{tag}}" />
+  {% endfor %}
+
+{% endblock %}
+
+{% block content %}
+<div class="ribbon mdl-color--accent"></div>
+
+<div class="single mdl-layout__content">
+  <div class="single-container mdl-grid">
+    <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+
+    <div class="single-content mdl-color--white mdl-shadow--4dp mdl-cell mdl-cell--8-col">
+
+      <section id="content" class="body">
+        <header>
+          <h1 class="entry-title"><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h1>
+        </header>
+        <div class="entry-content">
+          {{ article.content }}
+        </div><!-- /.entry-content -->
+      </section>
+
+    </div>
+
+  </div>
+
+</div>
+
+{% endblock %}

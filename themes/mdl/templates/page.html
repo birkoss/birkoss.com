@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}{{ page.title }}{%endblock%}
+{% block content %}
+
+<div class="ribbon mdl-color--accent"></div>
+
+<div class="single mdl-layout__content">
+  <div class="single-container mdl-grid">
+    <div class="mdl-cell mdl-cell--3-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+
+    <div class="single-content mdl-color--white mdl-shadow--4dp mdl-cell mdl-cell--6-col">
+
+      <section id="content" class="body" style="text-align: center;">
+        <header><h1>{{ page.title }}</h1></header>
+        <div class="page-content">{{ page.content }}</div>
+      </section>
+    </div>
+  </div>
+</div>
+
+	{% if page.modified %}
+		<p>
+		Last updated: {{ page.locale_modified }}
+		</p>
+	{% endif %}
+{% endblock %}

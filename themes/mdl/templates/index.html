@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="mdl-layout__tab-panel is-active">
+
+{% block content_title %}
+
+{% endblock content_title %}
+
+
+
+{% for article in articles_page.object_list %}
+
+<section class="mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+  <header class="category_icon mdl-cell mdl-cell--3-col-desktop mdl-cell--2-col-tablet mdl-cell--4-col-phone mdl-color--accent mdl-color-text--white">
+    <a class="mdl-color-text--accent-contrast" href="{{ SITEURL }}/{{ article.category.url }}"><i class="fa fa-4x fa-{{ CATEGORY_ICONS[ article.category.slug ] }}"></i></a>
+  </header>
+  <div class="mdl-card mdl-cell mdl-cell--9-col-desktop mdl-cell--6-col-tablet mdl-cell--4-col-phone">
+    <div class="mdl-card__supporting-text">
+      <h1><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h1>
+      {{ article.summary }}
+    </div>
+    <div class="mdl-card__actions">
+      {% for tag in article.tags %}
+      <a href="{{ SITEURL }}/{{ tag.url }}" class="mdl-button">{{ tag.name }}</a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% endfor %}
+
+</div>
+
+{% if articles_page.has_other_pages() %}
+    {% include 'pagination.html' %}
+{% endif %}
+
+{% endblock content %}

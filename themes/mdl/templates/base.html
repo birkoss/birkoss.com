@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="{{ DEFAULT_LANG }}">
+<head>
+  {% block head %}
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
+  <meta charset="utf-8" />
+  {% if FEED_ALL_ATOM %}
+  <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Full Atom Feed" />
+  {% endif %}
+  {% if FEED_ALL_RSS %}
+  <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Full RSS Feed" />
+  {% endif %}
+  {% if FEED_ATOM %}
+  <link href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" />
+  {% endif %}
+  {% if FEED_RSS %}
+  <link href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
+  {% endif %}
+  {% if CATEGORY_FEED_ATOM and category %}
+  <link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM|format(category.slug) }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Categories Atom Feed" />
+  {% endif %}
+  {% if CATEGORY_FEED_RSS and category %}
+  <link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_RSS|format(category.slug) }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Categories RSS Feed" />
+  {% endif %}
+  {% if TAG_FEED_ATOM and tag %}
+  <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_ATOM|format(tag.slug) }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Tags Atom Feed" />
+  {% endif %}
+  {% if TAG_FEED_RSS and tag %}
+  <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_RSS|format(tag.slug) }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Tags RSS Feed" />
+  {% endif %}
+  <link rel="stylesheet" href="{{ SITEURL }}/theme/css/material.min.css">
+  <script src="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/style.css" />
+  {% endblock head %}
+</head>
+
+<body id="index" class="home">
+
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+      <div class="mdl-layout__header-row">
+        <!-- Title -->
+        <span class="mdl-layout-title"><a href="{{ SITEURL }}/">{{ SITENAME }}</a></span>
+        <!-- Add spacer, to align navigation to the right -->
+        <div class="mdl-layout-spacer"></div>
+        <!-- Navigation. We hide it in small screens. -->
+        <nav class="mdl-navigation mdl-layout--large-screen-only">
+          {% for cat, null in categories %}
+            <a class="mdl-navigation__link{% if cat == category %} is-active{% endif %}" href="{{ SITEURL }}/{{ cat.url }}"><i class="fa fa-{{ CATEGORY_ICONS[ cat.slug ] }}"></i> {{ cat }}</a>
+          {% endfor %}
+        </nav>
+      </div>
+    </header>
+    <div class="mdl-layout__drawer mdl-color--accent mdl-color-text--accent-contrast">
+      <span class="mdl-layout-title mdl-color--primary"><a href="{{ SITEURL }}/">{{ SITENAME }}</a></span>
+      <nav class="mdl-navigation mdl-color-text--primary-contrast">
+        {% for cat, null in categories %}
+          <a class="mdl-navigation__link{% if cat == category %} is-active{% endif %}" href="{{ SITEURL }}/{{ cat.url }}"><i class="fa fa-{{ CATEGORY_ICONS[ cat.slug ] }}"></i> {{ cat }}</a>
+        {% endfor %}
+      </nav>
+    </div>
+    <main class="mdl-layout__content">
+
+        {% block content %}
+        {% endblock %}
+
+        <footer class="mdl-mini-footer mdl-color--primary mdl-color-text--primary-contrast">
+          <div class="mdl-mini-footer--left-section">
+            Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+          </div>
+          <div class="mdl-mini-footer--right-section">
+            <a class="mdl-mini-footer--social-btn btn-social" href="http://keyserver1.pgp.com/vkd/DownloadKey.event?keyid=0x33338F6E163BAF17"><i class="fa fa-key fa-2x"></i></a>
+            <a class="mdl-mini-footer--social-btn btn-social" href="mailto:admin@birkoss.com"><i class="fa fa-envelope fa-2x"></i></a>
+            <a class="mdl-mini-footer--social-btn btn-social" href="http://twitter.com/birkoss"><i class="fa fa-twitter fa-2x"></i></a>
+          </div>
+        </footer>
+
+    </main>
+  </div>
+
+</body>
+</html>
