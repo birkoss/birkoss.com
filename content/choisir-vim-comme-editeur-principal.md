@@ -64,4 +64,12 @@ Si je veux effacer de mon curseur, jusqu'à la lettre *p* du mot posuere, je vai
 
 C'est la même chose si on veut remplacer le texte du curseur jusqu'à la lettre **p**, on va utiliser la commande **ctp**. Ceci va effacer le texte et nous mettre en mode insertion.
 
+Prenons l'exemple suivant : (on curseur est représenté par le **#**) :
 
+echo 'Ceci est un**#** texte';
+
+Si je veux changer le texte entre guillemets, peu importe ou je suis situé entre les guillemets, je peux faire **ci'** et le texte sera enlevé et on sera en mode insertion prêt à mettre le nouveau texte. Seulement 3 touches, sans déplacer les mains de son clavier!
+
+Certains mouvements, comme **G** pour la fin du fichier, peut être utiliser seul pour aller à la fin du fichier, mais utilisé avec l'opérateur **d** qui donne **dG** effacera à partir du curseur jusqu'à la fin du fichier.
+
+La force ultime de Vim réside dans ce concept. Il y a toujours façon d'améliorer les opérations qu'on fait en utilisant le moins de touche possible. Aucun autre éditeur ne me rend aussi fier de passer d'une commande de 5 touches vers une commande de 3.
