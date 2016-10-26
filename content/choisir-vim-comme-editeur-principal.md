@@ -58,7 +58,7 @@ Vim est en mode d'attente **d** n'est pas un opérateur qui est utilisable sans 
 
 Prenons exemple du texte suivant (mon curseur est représenté par **#**) :
 
-Lorem ipsum dolor sit amet, consectetur adipiscing **#**elit. Nunc quis posuere metus.
+	Lorem ipsum dolor sit amet, consectetur adipiscing #elit. Nunc quis posuere metus.
 
 Si je veux effacer de mon curseur, jusqu'à la lettre *p* du mot posuere, je vais utiliser la lettre **t** suivi de la lettre jusqu'à laquelle je veux effacer, ici **p**. La commande sera **dtp** qui se lit (en anglais), comme suit : Delete unTil P.
 
@@ -66,7 +66,7 @@ C'est la même chose si on veut remplacer le texte du curseur jusqu'à la lettre
 
 Prenons l'exemple suivant : (on curseur est représenté par le **#**) :
 
-echo 'Ceci est un**#** texte';
+	echo 'Ceci est un# texte';
 
 Si je veux changer le texte entre guillemets, peu importe ou je suis situé entre les guillemets, je peux faire **ci'** et le texte sera enlevé et on sera en mode insertion prêt à mettre le nouveau texte. Seulement 3 touches, sans déplacer les mains de son clavier!
 
