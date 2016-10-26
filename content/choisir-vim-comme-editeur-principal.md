@@ -25,5 +25,43 @@ Les avantages de Vim
 Les désavantages de Vim
 -----------------------
 
-* La courbe d'apprentissage est grande et assez imposante! Cependant, c'est possible d'y aller par étapes, à notre rythme. Au début, quand on voit les différentes fonctions et leurs touches, c'est assez difficile de tout absorber.
+* La courbe d'apprentissage est grande et assez imposante! On peut parler de mur plutôt que d'une courbe. Cependant, c'est possible d'y aller par étapes, à notre rythme. Au début, quand on voit les différentes fonctions et leurs touches, c'est assez difficile de tout absorber.
 * Si on modifie Vim (chose que tout le monde fait), quand on tombe dans un Vim de base, c'est parfois mélangeant. C'est pourquoi les modifications qu'on y apporte devrait être esthétique, ou pour faciliter notre édition. Le fonctionnement de base devrait rester sensiblement le même.
+
+Comment Vim fonctionne
+----------------------
+
+Vim est un éditeur de mode. Cela signifie qu'il fonctionne à l'aide de différents modes au lieu d'être un éditeur normal. Il y a plusieurs modes :
+
+* Mode normal: C'est le mode par défaut, et celui par lequel on navigue dans les documents et qu'on effectue plusieurs opérations d'édition de texte.
+* Mode insertion: C'est le mode ou on ajoute du texte dans le document. Ce mode est fait pour être utilisé par brève instance, une fois le texte ajouté, on devrait toujours retourné en mode normal.
+* Mode visual: C'est le mode pour faire des sélections de texte
+* Mode commande
+* Mode ex
+
+Les commandes sous Vim fonctionne, pour la plupart sous la syntaxe suivante :
+
+Compteur + Opérateur + Mouvement
+
+Le *compteur* est optionel, et signifie la répétion de la commande.
+
+Voici quelques opérateurs parmis les plus importants :
+
+* d pour effacer
+* c pour changer
+* y pour copier
+
+
+Jusqu'ici, ça va. C'est le concept du mouvement qui est souvent le plus difficile à comprendre. Si on veut effacer une ligne, on appuie sur **d** et rien ne se passe. C'est normal!
+
+Vim est en mode d'attente **d** n'est pas un opérateur qui est utilisable sans mouvement, Vim sait qu'on veut effacer, mais effacer quoi, et jusqu'ou?
+
+Prenons exemple du texte suivant (mon curseur est représenté par **#**) :
+
+Lorem ipsum dolor sit amet, consectetur adipiscing **#**elit. Nunc quis posuere metus.
+
+Si je veux effacer de mon curseur, jusqu'à la lettre *p* du mot posuere, je vais utiliser la lettre **t** suivi de la lettre jusqu'à laquelle je veux effacer, ici **p**. La commande sera **dtp** qui se lit (en anglais), comme suit : Delete unTil P.
+
+C'est la même chose si on veut remplacer le texte du curseur jusqu'à la lettre **p**, on va utiliser la commande **ctp**. Ceci va effacer le texte et nous mettre en mode insertion.
+
+
