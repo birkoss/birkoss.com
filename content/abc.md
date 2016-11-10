@@ -6,7 +6,7 @@ Slug: abc-android-play-store
 
 ![](/images/abc.png)
 
-Pour aider ma petite à apprendre à lire et écrire, j'ai décidé de lui développer un petit jeu. Ayant commencer plusieurs prototype, j'ai décidé que ce jeu serait publié sur le Play Store pour Android.
+Pour aider ma petite à apprendre à lire et écrire, j'ai décidé de lui développer un petit jeu. Ayant commencer plusieurs prototype, j'ai décidé que ce jeu serait publié sur le [Play Store](https://play.google.com/store/apps/details?id=com.birkoss.lettres) pour Android.
 
 En 5 jours, de la création du projet dans Unity3D vers la publication, j'ai réduit les ajouts et les modifications au minimum. C'est trop facile de se laisser aller et d'éventuellement, abandonner le projet...
 
